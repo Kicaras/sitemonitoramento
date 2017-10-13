@@ -1,0 +1,1 @@
+export const movies = ["Star Wars", "Matrix", "Forrest Gump"]

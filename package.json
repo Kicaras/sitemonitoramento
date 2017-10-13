@@ -1,0 +1,11 @@
+{
+  "name": "site-monitoramento",
+  "version": "1.0.0",
+  "description": "site para monitoramento de cargas",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "systemjs": "^0.20.18",
+    "systemjs-plugin-babel": "0.0.25",
+    "traceur": "0.0.111"
+  }
+}
