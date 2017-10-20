@@ -4,7 +4,7 @@
 	//Necessário devido a utilização do autoload
 	use PDO;
 	
-	//COMO UTILIZAR: Conn::getConn()->query("SUA QUERY AQUI DENTRO");
+	//COMO UTILIZAR: Conn::getConn()->query("SUA QUERY AQUI DENTRO"); 
 	
 	class Conn
 	{
