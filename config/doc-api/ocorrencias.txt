@@ -1,0 +1,12 @@
+get: /ocorrencias - retorna todas ocorrencias
+
+post: /ocorrencias - cadastra ocorrencia
+	{
+		"tipo":"1",
+		"relatorio":"descrição da ocorrencia",
+		"date_time":"20/10/2017 01:56",
+		"carga":"1"
+	}
+	
+delete: /ocorrencias/{cod} - deleta ocorrencias pelo cod
+

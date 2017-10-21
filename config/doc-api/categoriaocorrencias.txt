@@ -1,0 +1,9 @@
+get: /ocorrencias - retorna todas ocorrencias
+
+post: /ocorrencias - cadastra ocorrencia
+	{
+		"descricao":"atropelamento com vítima"
+	}
+	
+delete: /ocorrencias/{cod} - deleta ocorrencias pelo cod
+

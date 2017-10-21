@@ -1,0 +1,25 @@
+get: /cargas - retorna todas cargas
+
+post: /cargas - cadastra cargas
+	{
+		"descricao":"milho espigas para sementes",
+		"placa_veiculo":"dfa-2662",
+		"cpf_motorista":"1234",
+		"destino":"3333",
+		"inicio":"54543",
+		"status":"1"
+	}
+	
+put: /cargas - altera cargas
+	{
+		"cod":"1",
+		"descricao":"milho em espigas",
+		"placa_veiculo":"dfa-2662",
+		"cpf_motorista":"1234",
+		"destino":"3333",
+		"inicio":"54543",
+		"status":"1"
+	}
+	
+delete: /cargas/{cod} - deleta cargas pelo cod
+

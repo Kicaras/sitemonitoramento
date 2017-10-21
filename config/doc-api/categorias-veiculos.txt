@@ -1,0 +1,9 @@
+get: /categoriasveiculo - retorna todas categoriasveiculo
+
+post: /categoriasveiculo - cadastra categoria
+	{
+		"descricao":"trimião"
+	}
+	
+delete: /categoriasveiculo/{cod} - deleta categoria pelo cod
+
