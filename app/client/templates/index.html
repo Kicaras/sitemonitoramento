@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html lang="pt-br">
+        <head>
+            <title>Monitoramento de cargas e caminhões</title>
+            <meta charset="utf-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Projeto de Monitoramento de cargas e Caminhões">
+            <meta name="keywords" content="Monitoramento, Cargas, Caminhões, Sites">
+            <meta name="robots" content="index, follow">
+            <meta name="author" content="Lucas Barreto de Araújo, Gustavo Soriano, Klerison Auditore">    
+            <link rel="stylesheet" href="../assets/css/main.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+            <link rel="icon" href="../img/logo.jpg">
+        </head>
+        <header class="cabecalho container">
+            <a href="index.html"><h1 class="logo"> Monitoramento de cargas e caminhões </h1></a>
+        </header>
+        <body>
+            <div class="topo">
+                <div class="topo-left">
+                    <span>GERENCIAMENTO DO PAINEL ADMINISTRATIVO</span>
+                </div>
+                <div class="topo-righ">
+                    <div class="dropdown">
+                        <span> Opções administrativas </span>
+        
+                        <div class="dropdown-content">
+                            <p onclick="show(cargas)">Gerenciar Cargas</p>
+                            <p onclick="show(motoristas)">Gerenciar Motoristas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="plataform">
+                <div class="plataform-header">
+                    <h1>GERENCIAMENTO DE DADOS</h1>
+                    <div class="btn success" onClick="mountStringData(arr)">Novo</div>
+                </div>
+                
+                <div class="plataform-content">
+                    <table border="1">
+                        <thead>
+                            <th>COD</th>
+                            <th>NOME</th>
+                            <th>IDADE</th>
+                            <th>AÇÃO</th>
+                        </thead>
+                        
+                        <tbody id="dados"></tbody>
+                    </table>
+                </div>
+                <!-- RODAPÉ -->
+                <div class="plataform-footer ">
+                        <div class="social-icons">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                        </div>
+                        <p class="copyright">
+                        Copyright © NodeProp 2016. Todos os direitos reservados.
+                </div>
+                <script>
+                    //vetor de objetos ( coleção de objetos | cada índice é um objeto)
+                    let arr = [
+                      {cod:'1',nome:'Nome', idade:22},
+                      {cod:'2',nome:'Nome', idade:18},
+                      {cod:'3',nome:'Nome', idade:24},  
+                      {cod:'4',nome:'Nome', idade:28},
+                      {cod:'5',nome:'Nome', idade:32}
+                    ]
+
+                    function show()
+                    {
+                        HTMLBodyElement.tbody.show();
+                    }
+
+                    function Deletar()
+                    {
+                        alert("")
+                    }
+
+                    function Alterar()
+                    {
+                        alert("")
+                    }           
+            
+                    //função que vai receber um vetor de objetos e montar o conteudo da tabela
+                    //depois que montar ela retorna a string html
+                    function mountStringData(vetor_recebido)
+                    {
+                      //vai ser usada para concatenar o html
+                      let stringHTML = ""
+            
+                        //percorre o vetor recebido pegando cada objeto
+                        vetor_recebido.forEach(obj =>{
+                        //concatena linha por linha dentro da variável stringHTML
+                    stringHTML += `<tr><td>${obj.cod}</td><td>${obj.nome}</td><td>${obj.idade}</td><td><div class="btn danger" onclick="Deletar()">Deletar</div><div class="btn warning" onclick="Alterar()">Alterar</div></td></tr>`
+                      })
+                      
+                      return stringHTML //devolve o html pronto para quem chamou a função
+                    }
+                    
+                    
+                    //joga a string html, retornada pela função, dentro do tbody da tabela
+                    document.querySelector("#dados").innerHTML = mountStringData(arr)
+                </script>
+        </body>
+</html>
