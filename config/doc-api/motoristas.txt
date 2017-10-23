@@ -1,0 +1,52 @@
+get: /motoristas/{cpf} - retorna motorista pelo cpf
+
+get: /motoristas - retorna todos motoristas
+
+post: /motoristas - cadastra motorista
+	{
+		"cpf":"22",
+		"nome":"anderson romão",
+		"agregado":1,
+		"moip":1,
+		"email":"email@email.com",
+		"vencimento_cnh":"22/10/2017",
+		"numregistro_cnh":2543,
+		"categoria_cnh":"a/b",
+		"fone1":"131323",
+		"fone2":"323223",
+		"endereco":{
+			"rua":"pedro lavezo",
+			"numero":"201",
+			"bairro":"morumbi",
+			"cidade":"matão",
+			"estado":"sp",
+			"cep":"15990-000"
+		}
+	}
+	
+put: /motoristas - altera motorista ( tem que devolver o objeto inteiro )
+	{
+		"cpf":"22",
+		"nome":"anderson romão",
+		"agregado":1,
+		"moip":1,
+		"email":"email@email.com",
+		"vencimento_cnh":"22/10/2017",
+		"numregistro_cnh":2543,
+		"categoria_cnh":"a/b",
+		"fone1":"131323",
+		"fone2":"323223",
+		"endereco":{
+			"rua":"pedro lavezo",
+			"numero":"201",
+			"bairro":"morumbi",
+			"cidade":"matão",
+			"estado":"sp",
+			"cep":"15990-000"
+		}
+	}
+	
+	
+	
+delete: /motoristas/{cpf} - deleta motorista pelo cpf
+

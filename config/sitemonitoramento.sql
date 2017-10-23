@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 20-Out-2017 às 16:36
+-- Generation Time: 21-Out-2017 às 09:37
 -- Versão do servidor: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cargas` (
   `cod` int(11) NOT NULL,
+  `descricao` varchar(300) NOT NULL,
   `placa_veiculo` varchar(10) NOT NULL,
   `cpf_motorista` varchar(12) NOT NULL,
   `destino` varchar(20) NOT NULL,
@@ -39,8 +40,9 @@ CREATE TABLE `cargas` (
 -- Extraindo dados da tabela `cargas`
 --
 
-INSERT INTO `cargas` (`cod`, `placa_veiculo`, `cpf_motorista`, `destino`, `inicio`, `status`) VALUES
-(1, 'dfa-2662', '1234', '1', '2', 1);
+INSERT INTO `cargas` (`cod`, `descricao`, `placa_veiculo`, `cpf_motorista`, `destino`, `inicio`, `status`) VALUES
+(1, 'soja paletizada', 'dfa-2662', '1234', '1', '2', 1),
+(2, 'milho em espigas', 'dfa-2662', '1234', '3333', '54543', 1);
 
 -- --------------------------------------------------------
 
@@ -58,6 +60,7 @@ CREATE TABLE `categoriaocorrencias` (
 --
 
 INSERT INTO `categoriaocorrencias` (`cod`, `descricao`) VALUES
+(4, 'atropelamento com vÃ­tima'),
 (2, 'acidentes'),
 (3, 'quebrou veiculo');
 
@@ -78,7 +81,8 @@ CREATE TABLE `categoriasveiculo` (
 
 INSERT INTO `categoriasveiculo` (`cod`, `descricao`) VALUES
 (4, 'romeu e julieta'),
-(3, 'truck');
+(3, 'truck'),
+(6, 'trimiÃ£o');
 
 -- --------------------------------------------------------
 
@@ -89,16 +93,20 @@ INSERT INTO `categoriasveiculo` (`cod`, `descricao`) VALUES
 CREATE TABLE `empresas` (
   `cnpj` varchar(20) NOT NULL,
   `nome` varchar(100) NOT NULL,
-  `seguimento` int(11) DEFAULT NULL
+  `seguimento` int(11) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `fone1` varchar(40) NOT NULL,
+  `fone2` varchar(40) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `empresas`
 --
 
-INSERT INTO `empresas` (`cnpj`, `nome`, `seguimento`) VALUES
-('3333', 'syngenta', 1),
-('54543', 'citrosuco', 2);
+INSERT INTO `empresas` (`cnpj`, `nome`, `seguimento`, `email`, `fone1`, `fone2`) VALUES
+('3333', 'syngenta', 1, '', '', ''),
+('54543', 'citrosuco', 2, '', '', ''),
+('1223', 'syngenta', 1, 'email@empresa.com', '000', '111');
 
 -- --------------------------------------------------------
 
@@ -115,6 +123,15 @@ CREATE TABLE `enderecos` (
   `cep` varchar(100) NOT NULL,
   `entidade` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `enderecos`
+--
+
+INSERT INTO `enderecos` (`rua`, `numero`, `bairro`, `cidade`, `estado`, `cep`, `entidade`) VALUES
+('pedro lavezo', '204', 'morumbi', 'matÃ£o', 'sp', '15990-884', '22'),
+('pedro lavezo', '201', 'morumbi', 'matÃ£o', 'sp', '15990-000', '3333'),
+('jhon bambolÃª', '400', 'santa rosa', 'matÃ£o', 'sp', '15990-600', '1223');
 
 -- --------------------------------------------------------
 
@@ -143,7 +160,8 @@ INSERT INTO `motoristas` (`cpf`, `nome`, `agregado`, `moip`, `email`, `venciment
 ('1234', 'joao melao', 1, 0, 'joao@joao.com', '', '', '', '', ''),
 ('2132', 'mary', 1, 1, 'mari@mari.com', '', '', '', '', ''),
 ('45678', 'mimoza', 1, 1, 'email@email.com', '', '', '', '', ''),
-('545433', 'rambo', 1, 1, 'email@email.com', '', '', '', '', '');
+('545433', 'rambo', 1, 1, 'email@email.com', '', '', '', '', ''),
+('22', 'anderson leitÃ£o', 1, 1, 'email@xxx.com', '22/11/2017', '2546', 'a/b', '131323', '323223');
 
 -- --------------------------------------------------------
 
@@ -183,7 +201,8 @@ CREATE TABLE `seguimentoempresa` (
 
 INSERT INTO `seguimentoempresa` (`cod`, `descricao`) VALUES
 (1, 'milho'),
-(2, 'laranja');
+(2, 'laranja'),
+(3, 'implementos agrÃ­colas');
 
 -- --------------------------------------------------------
 
@@ -220,7 +239,8 @@ CREATE TABLE `veiculos` (
 
 INSERT INTO `veiculos` (`placa`, `chassi`, `categoria`, `tara`, `anofabricacao`, `anomodelo`, `meslicenciamento`, `statuslicenciamento`) VALUES
 ('dfa-2662', '5435 4b435345hytht', 5, '13900', '1999', '2000', '8', 1),
-('abcd-2321', '5435 4sjtjtyj45hytht', 4, '13501', '1999', '2000', '8', 1);
+('abcd-2321', '5435 4sjtjtyj45hytht', 4, '13501', '1999', '2000', '8', 1),
+('abb-1223', '6776j4567', 4, '11900', '1900', '1900', '7', 1);
 
 --
 -- Indexes for dumped tables
@@ -292,27 +312,27 @@ ALTER TABLE `veiculos`
 -- AUTO_INCREMENT for table `cargas`
 --
 ALTER TABLE `cargas`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `categoriaocorrencias`
 --
 ALTER TABLE `categoriaocorrencias`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `categoriasveiculo`
 --
 ALTER TABLE `categoriasveiculo`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `ocorrencias`
 --
 ALTER TABLE `ocorrencias`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `seguimentoempresa`
 --
 ALTER TABLE `seguimentoempresa`
-  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,9 @@
+get: /seguimentoempresa - retorna todos seguimentoempresa
+
+post: /seguimentoempresa - cadastra ocorrencia
+	{
+		"descricao":"implementos agrícolas"
+	}
+	
+delete: /seguimentoempresa/{cod} - deleta seguimentoempresa pelo cod
+

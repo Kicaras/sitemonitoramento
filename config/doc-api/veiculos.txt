@@ -1,0 +1,30 @@
+get: /veiculos - retorna todos veiculos
+
+post: /veiculos - cadastra veiculo
+    {
+        "placa": "dfa-2662",
+        "chassi": "5435 4b435345hytht",
+        "categoria": "5",
+        "tara": "13900",
+        "anofabricacao": "1999",
+        "anomodelo": "2000",
+        "meslicenciamento": "8",
+        "statuslicenciamento": "1"
+    }
+	
+put: /veiculos - altera veiculo ( tem que devolver o objeto inteiro )
+    {
+        "placa": "dfa-2662",
+        "chassi": "5435 4b435345hytht",
+        "categoria": "5",
+        "tara": "13900",
+        "anofabricacao": "1999",
+        "anomodelo": "2000",
+        "meslicenciamento": "8",
+        "statuslicenciamento": "1"
+    }
+	
+	
+	
+delete: /veiculos/{placa} - deleta veiculo pela placa
+

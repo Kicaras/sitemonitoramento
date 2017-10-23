@@ -1,0 +1,44 @@
+get: /empresas/{cnpj} - retorna empresa pelo cnpj
+
+get: /empresas - retorna todos empresas
+
+post: /empresas - cadastra empresa
+	{
+		"cnpj":"3333",
+		"nome":"syngenta",
+		"seguimento":"1",
+		"email":"email@email.com",
+		"fone1":"131323",
+		"fone2":"323223",
+		"endereco":{
+			"rua":"pedro lavezo",
+			"numero":"201",
+			"bairro":"morumbi",
+			"cidade":"matão",
+			"estado":"sp",
+			"cep":"15990-000"
+		}
+	}
+	
+put: /empresas - altera empresa ( tem que devolver o objeto inteiro )
+	{
+		"cnpj":"3333",
+		"nome":"syngenta",
+		"seguimento":"1",
+		"email":"email@empresa.com",
+		"fone1":"000",
+		"fone2":"111",
+		"endereco":{
+			"rua":"jhon bambolê",
+			"numero":"400",
+			"bairro":"santa rosa",
+			"cidade":"matão",
+			"estado":"sp",
+			"cep":"15990-600"
+		}
+	}
+	
+	
+	
+delete: /empresas/{cnpj} - deleta empresa pelo cnpj
+
