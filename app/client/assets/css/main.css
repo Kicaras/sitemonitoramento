@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+*{
+    margin:0;
+    font-family: 'Raleway', verdana, sans-serif;
+}
+
+body{
+    background-color:#f5f8fa;
+}
+
+h1{
+    font-weight: normal;
+}
+
+#status{
+    text-transform: capitalize
+}
+/*TOPO PAINEL ADMINISTRATIVO*/
+.topo{
+    min-height: 60px;
+    max-height: 100px;
+    height: 10vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0px 3px 3px #ededed;
+    display: flex;
+    justify-content: space-around;
+}
+.topo > div{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    color: #3d3d3d;
+}
+.topo div:last-child{
+    justify-content: flex-end;
+}
+.topo-left {  
+    font-size: 1.3em;
+}
+
+
+/*OPÇÕES ADMINISTRATIVAS COM DROPDOWN MENU GERENCIAMENTO DE CARGAS E MOTORISTA*/
+.dropdown{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.dropdown:after{
+    content: '▼';
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 3px 22px #ededed;
+    padding: 8px;
+    z-index: 1;
+    border-radius: 3px;
+    text-align: left;
+    color: #bbb;
+}
+.dropdown-content :hover{
+    color: #3d3d3d;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: #bbb;
+}
+
+
+/*LOGO DA EMPRESA*/
+.logo {width: 200px; height: 150px; float: left; background: url(../img/logo.jpeg) center center/160px no-repeat;
+font-size: 0;}
+
+
+/*PLATAFORMA*/
+.plataform{
+    width: 90%;
+    margin: auto;
+    margin-top: 120px;
+    margin-bottom: 80px;
+    border: #eee;
+    background-color :#fff;
+    border-radius: 5px;
+    box-shadow:0px 3px 3px #ededed;
+}
+
+.plataform-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #dbdbdb;
+    border-bottom: 1px solid #ededed;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.7em;
+}
+
+.plataform-content{
+    font-size: 1.1em;
+    padding: 20px;
+}
+
+.plataform-footer{
+    color: #ccc;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+    
+.plataform-btn{
+    box-shadow: 0px 3px 3px #ededed;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 5px;
+    margin: .5%;
+    background-color: #3698ce;
+    color: #fff;
+}
+
+
+/*TABELA*/
+table{ 
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #61666b;
+    box-shadow: 0px 3px 3px #eee;
+    border-collapse:collapse;
+}
+    
+thead{
+    text-align: left;
+    background-color: #f4f5f7;
+}   
+
+tr:nth-child(even){
+    background-color: #f4f5f7;
+}    
+
+td,th{
+    padding: 10px;
+    text-transform:capitalize;
+    border: 1px solid #eee;
+}
+
+
+/*BOTÕES*/
+    .btn{
+    box-shadow: 0px 3px 3px #ededed;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 5px;
+    margin: .5%;
+}
+.btn:hover{
+    opacity: .9;
+}
+.danger{
+    background-color: #bd5430;
+    color: #fff;
+}
+.info{
+    background-color: #3698ce;
+    color: #fff;
+}
+.warning{
+    background-color: #fdbd40;
+    color: #fff;
+}
+.success{
+    background-color: #33b17c;
+    color: #fff;
+}
+
+.btn-informacao{
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+    MODAL
+*/
+@media (max-width:$screen-xs-max){}
+@media (min-width:$screen-sm){}
+@media (min-width:$screen-sm){}
+
+.modal .btn-close{
+	color:#aaa;
+	cursor:pointer;
+	font-size:3rem;
+	position:absolute;
+	top:0;
+	right:5px;
+	text-decoration:none;
+}
+
+.modal .btn-close:hover,
+.modal .btn-close:focus{
+	color:#999
+}
+
+.modal-wrap:before{
+	content:'';
+	display:none;
+	background:rgba(0,0,0,0.6);
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:101
+}
+
+.modal-overlay{
+	display:none;
+	position:fixed;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index:102
+}
+
+.modal-open:checked ~ .modal-wrap:before,
+.modal-open:checked ~ .modal-wrap .modal-overlay{
+	display:block
+}
+
+.modal-open:checked ~ .modal-wrap .modal-dialog{
+	transform:translate(-50%,-50%);
+	position:fixed;
+	top:40%
+}
+
+.modal-dialog{
+	background:#fefefe;
+	border:#555 solid 1px;
+	border-radius:5px;
+	position:fixed;
+	left:50%;
+	top:-100%;
+	transform:translate(-50%,-150%);
+	transition:transform .6s ease-in-out;
+	width:80%;
+	max-width:600px;
+	z-index:103
+}
+
+.modal-body{
+	padding:20px;
+}
+
+.modal-body p{
+	margin:0
+}
+
+.modal-header,
+.modal-footer{
+	padding:20px 20px
+}
+
+.modal-header{
+	border-bottom:#eaeaea solid 1px;
+}
+
+.modal-header h2{
+	font-size:2rem;
+	margin:0
+}
+
+.modal-footer{
+	border-top:#eaeaea solid 1px;
+	text-align:right
+}
+
+

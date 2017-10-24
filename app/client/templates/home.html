@@ -1,24 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<title>Amor Incondicional</title>
+		<title>Monitoramento de cargas</title>
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="./app/client/assets/css/main.css">
+        <link rel="stylesheet" href="./app/client/assets/css/main.css">
+        <link rel="icon" href="./app/client/assets/img/logo.jpg">
 	</head>
 	
 	<body>
-		<h1>Bem vindo ao site</h1>
+        <!--( JANELA MODAL )-->
+        <div class="modal">
+            <input class="modal-open" id="modal-one" type="checkbox" hidden>
+            
+            <div class="modal-wrap" aria-hidden="true" role="dialog">
+                <label class="modal-overlay" for="modal-one"></label>
+                <div class="modal-dialog">
 
+                    <form id="insertMotoristas" hidden>
+                        cadastrar motoristas
+                    </form>
+
+                    <form id="updateMotoristas" hidden>
+                        alterar motoristas
+                    </form>
+
+                    <form id="updateCargas" hidden>
+                        alterar cargas
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+                
+        <div class="topo">
+            <div class="topo-left">
+                <span style="display:flex;align-items:center;"> <img width="75" src="./app/client/assets/img/logo.png"> Papaléguas transportes</span>
+            </div>
+            <div class="topo-righ">
+                <div class="dropdown">
+                    <span> Opções administrativas </span>
+    
+                    <div class="dropdown-content">
+                        <p onclick="show()">Gerenciar Cargas</p>
+                        <p onclick="carregarMotoristas()">Gerenciar Motoristas</p>
+                        <p onclick="show()">Gerenciar veiculos</p>
+                        <p onclick="show()">Gerenciar Cooperadores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="plataform">
+            <div class="plataform-header">
+                <h1 id="status"></h1>
+                <label id="btnNew" class="btn success" for="modal-one">Novo</label>
+            </div>
+
+            <div class="plataform-content">
+                <table border="1">
+                    <thead id="titleTable"></thead>
+                    <tbody id="dados"></tbody>
+                </table>
+            </div>
+            <!-- RODAPÉ -->
+            <div class="plataform-footer ">
+                    <div class="social-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-envelope"></i></a>
+                    </div>
+                    <p class="copyright">
+                    Copyright © NodeProp 2016. Todos os direitos reservados.
+            </div>
+        </div>
+
+        <script src="node_modules/axios/dist/axios.min.js" ></script>
         <script src="node_modules/traceur/bin/traceur.js" ></script>
         <script src="node_modules/systemjs/dist/system.js" ></script>
         <script>
             System.config({
                 map : {
                     'plugin-babel'         : 'node_modules/systemjs-plugin-babel/plugin-babel.js',
-                    'systemjs-babel-build' : 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
-                    'axios' : 'node_modules/axios/dist/axios.min.js'
+                    'systemjs-babel-build' : 'node_modules/systemjs-plugin-babel/systemjs-babel-browser.js'
                 },
                 'meta':{
                     './js/*.js':{
@@ -27,6 +95,8 @@
                 },
                 transpiler: 'plugin-babel'
             })
+
+            var host = "http://localhost/sitemonitoramento"
             System.import("./app/client/assets/js/app.js");
         </script>
 	</body>
